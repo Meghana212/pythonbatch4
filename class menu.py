@@ -1,5 +1,6 @@
-class menu: 
-        Menu = {'Plain dosa':'25','Idly':'20','Upma':'30','Rava idly':'35'}
+class menu:
+        def __init__(self):
+                self.Menu = {'Plain dosa':'25','Idly':'20','Upma':'30','Rava idly':'35'}
         def show(self):
                 print '\n'
                 for key,value in self.Menu.items():
@@ -11,7 +12,7 @@ class menu:
                 self.Menu[s] = n
                 
 c=menu()
-
+d=menu()
 while (1):
         a = input("\n(1)Display menu.\n(2)Add item.\n(3)Exit.\nEnter your choice : ")
         if a==1:
@@ -23,3 +24,4 @@ while (1):
                 break
         else:
                 print("\nInvalid choice.")
+d.show()
