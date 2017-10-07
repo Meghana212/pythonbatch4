@@ -32,23 +32,24 @@ while (1):
         a = input("\n(1)Display menu.\n(2)Order item.\n(3)Add item to the menu.\n(4)Exit.\nEnter your choice : ")
         if a==1:
                 c.show()
-        elif a==2:
+       elif a==2:
                 o=order()
                 while(1):
                         a = raw_input("\nEnter the item to be ordered:")
-                        if a in c.Menu:
-                                o.add(a,c.Menu[a])
-                                b=raw_input("Do you want to order more items(yes/no)?")
-                                if b=='yes':
-                                        continue
+                        try:
+                                if a in c.Menu:
+                                        o.add(a,c.Menu[a])
+                                        b=raw_input("Do you want to order more items(yes/no)?")
+                                        if b=='yes':
+                                                continue
+                                        else:
+                                                o.show()
+                                                break
                                 else:
-                                        o.show()
-                                        break
-                        else:
-                                try:
                                         raise keyerror
-                                except keyerror:
-                                        print 'Item is not in menu.order another item.'
+
+                        except keyerror:
+                                print 'Item is not in menu.order another item.'
                                 
         elif a==3:
                 c.add(raw_input("Enter the item to be added : "),input("Enter the price of the item : "))
